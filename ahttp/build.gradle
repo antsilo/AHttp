@@ -1,11 +1,14 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
-    compileSdkVersion 27
+    compileSdk 27
 
     defaultConfig {
-        minSdkVersion 18
-        targetSdkVersion 27
+        minSdk 18
+        targetSdk 27
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -18,8 +21,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -44,5 +47,15 @@ dependencies {
     //非必要依赖， log依赖，如果需要打印OkHttpLog需要添加
     api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 }
-
-
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.antsilo' //groupId 随便取
+                artifactId = 'ahttp'  //artifactId 随便取
+                version = '1.0.2'
+            }
+        }
+    }
+}

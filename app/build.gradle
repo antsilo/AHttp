@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdk 27
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.antsilo.ahttpdemo"
-        minSdk 18
-        targetSdk 27
+        minSdk 21
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 

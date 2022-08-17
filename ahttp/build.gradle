@@ -1,13 +1,11 @@
-plugins {
-    id 'com.android.library'
-}
+apply plugin: 'com.android.library'
 
 android {
-    compileSdk 32
+    compileSdkVersion 32
 
     defaultConfig {
-        minSdk 18
-        targetSdk 32
+        minSdkVersion 18
+        targetSdkVersion 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
